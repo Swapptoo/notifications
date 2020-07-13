@@ -1,10 +1,10 @@
 dist: trusty
 sudo: required
 language: php
-php:
-  - 7.2
-  - 7.3
-  - 7.4snapshot
+#php:
+#  - 7.2
+#  - 7.3
+#  - 7.4
 services:
   - mysql
   - postgresql
@@ -23,10 +23,10 @@ cache:
 
 env:
   global:
-    - CORE_BRANCH=master
+    - CORE_BRANCH=master@{2020-07-05}
     - APP_NAME=notifications
-  matrix:
-    - DB=sqlite
+#  matrix:
+#    - DB=sqlite
 
 branches:
   only:
@@ -71,18 +71,18 @@ script:
 
 matrix:
   include:
-    - php: 7.3
-      env: DB=mysql
-    - php: 7.3
-      env: DB=pgsql
+#    - php: 7.3
+#      env: DB=mysql
+#    - php: 7.3
+#      env: DB=pgsql
     - php: 7.3
       env: DB=oracle
-    - php: 7.3
-      env: DB=mysql;CODECHECK=1
-    - php: 7.3
-      env: DB=mysql;CODECHECK=2
-    - php: 7.2
-      env: DB=mysql;INTEGRATION=1
-  allow_failures:
-    - env: DB=mysql;CODECHECK=2
+#    - php: 7.3
+#      env: DB=mysql;CODECHECK=1
+#    - php: 7.3
+#      env: DB=mysql;CODECHECK=2
+#    - php: 7.2
+#      env: DB=mysql;INTEGRATION=1
+#  allow_failures:
+#    - env: DB=mysql;CODECHECK=2
   fast_finish: true
